@@ -17,8 +17,8 @@ http_port 12323
 
 # Sembunyikan informasi ISP
 forwarded_for off
-request_header_access Via deny all
 request_header_access X-Forwarded-For deny all
+request_header_access Via deny all
 reply_header_access Via deny all
 via off
 header_replace Via ""
@@ -57,11 +57,16 @@ sudo systemctl stop squid
 sudo rm -f /run/squid.pid
 sudo squid -z
 
-# Konfigurasi IP publik Anda
-IP_PUBLIC="IP_PUBLIC_ANDA"  # Ganti dengan IP publik Anda
-sudo bash -c "cat > /etc/squid/conf.d/ip.conf <<EOF
+# Mendapatkan IP public secara otomatis
+IP_PUBLIC=$(curl -s ipinfo.io/ip)
+
+# Menambahkan IP public ke file konfigurasi Squid
+sudo bash -c "cat > /etc/squid/conf.d/ip1.conf <<EOF
 http_port $IP_PUBLIC:12323
 EOF"
+
+# Menampilkan pesan sukses
+echo "File /etc/squid/conf.d/ip1.conf telah diperbarui dengan IP publik: $IP_PUBLIC"
 
 # Buka port 12323 di firewall
 sudo ufw allow 12323/tcp
@@ -73,7 +78,7 @@ sudo squid -k parse
 # Restart Squid
 sudo systemctl restart squid
 
-echo "Squid telah berhasil dikonfigurasi dengan IP publik: $IP_PUBLIC"
-echo "Username: $IP_PUBLIC:12323"
+echo "Squid telah berhasil dikonfigurasi"
+echo "Host:Port: $(curl -s ipinfo.io/ip):12323"
 echo "Username: egan"
 echo "Password: rumiyah123"
