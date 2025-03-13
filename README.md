@@ -18,4 +18,4 @@ Skrip ini digunakan untuk menginstal dan mengonfigurasi Squid Proxy Server secar
 1. **Clone Repositori ini dan Jalankan Skrip:**
    Salin dan jalankan perintah berikut di terminal Anda:
    ```bash
-curl -s https://raw.githubusercontent.com/PemburuSurya/autoinstall-squid-proxyserver/main/squid.sh -o squid.sh && chmod +x squid.sh && sudo ./squid.sh
+   curl -s https://raw.githubusercontent.com/PemburuSurya/autoinstall-squid-proxyserver/main/squid.sh -o squid.sh && chmod +x squid.sh && sudo ./squid.sh
