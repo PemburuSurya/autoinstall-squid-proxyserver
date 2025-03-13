@@ -78,7 +78,11 @@ sudo squid -k parse
 # Restart Squid
 sudo systemctl restart squid
 
-echo "Squid telah berhasil dikonfigurasi"
-echo "Host:Port: $(curl -s ipinfo.io/ip):12323"
-echo "Username: egan"
-echo "Password: rumiyah123"
+# Output completion message with separators and blue color
+echo -e "${BLUE}/////////////////////////////////////////////////////////////////////////////${RESET}"
+echo -e "${BLUE}Squid telah berhasil dikonfigurasi${RESET}"
+echo -e "${BLUE}Akses Proxy melalui${RESET}"
+echo -e "${BLUE}(curl -s ipinfo.io/ip):12323${RESET}"
+echo -e "${BLUE}Username: egan${RESET}"
+echo -e "${BLUE}Password: rumiyah123${RESET}"
+echo -e "${BLUE}/////////////////////////////////////////////////////////////////////////////${RESET}"
