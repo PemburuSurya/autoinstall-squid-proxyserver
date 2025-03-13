@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Define color codes
+RED='\033[0;31m'
+RESET='\033[0m' # Reset color
+
 # Update dan upgrade sistem
 sudo apt update
 sudo apt upgrade -y
@@ -78,11 +82,11 @@ sudo squid -k parse
 # Restart Squid
 sudo systemctl restart squid
 
-# Output completion message with separators and blue color
-echo -e "${BLUE}/////////////////////////////////////////////////////////////////////////////${RESET}"
-echo -e "${BLUE}Squid telah berhasil dikonfigurasi${RESET}"
-echo -e "${BLUE}Akses Proxy melalui${RESET}"
-echo -e "${BLUE}(curl -s ipinfo.io/ip):12323${RESET}"
-echo -e "${BLUE}Username: egan${RESET}"
-echo -e "${BLUE}Password: rumiyah123${RESET}"
-echo -e "${BLUE}/////////////////////////////////////////////////////////////////////////////${RESET}"
+# Output completion message with separators and red color
+echo -e "${RED}/////////////////////////////////////////////////////////////////////////////${RESET}"
+echo -e "${RED}Squid telah berhasil dikonfigurasi${RESET}"
+echo -e "${RED}Akses Proxy melalui${RESET}"
+echo -e "${RED}${IP_PUBLIC}:12323${RESET}"
+echo -e "${RED}Username: egan${RESET}"
+echo -e "${RED}Password: rumiyah123${RESET}"
+echo -e "${RED}/////////////////////////////////////////////////////////////////////////////${RESET}"
